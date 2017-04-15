@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Row, Col, FormInput, Button, InputGroup, Modal, ModalHeader, ModalBody, ModalFooter} from 'elemental';
+import {Row, Col, FormInput, Button, InputGroup, Modal, ModalHeader, ModalBody, ModalFooter, Spinner} from 'elemental';
 import {WebPreview} from './';
 import {takePicture} from '../utils';
 
@@ -76,8 +76,8 @@ class Home extends Component {
 							<Col sm="1/1">
 								<Modal isOpen={this.state.modalIsOpen} onCancel={this.toggleModal} backdropClosesModal>
 									<ModalHeader text="Lots of text to show scroll behavior" showCloseButton onClose={this.toggleModal} />
-									<ModalBody>
-										{image ? <WebPreview image={image} /> : null}
+									<ModalBody className="ModalBody">
+										{image ? <WebPreview image={image} /> : <Spinner size="md" type="primary" />}
 									</ModalBody>
 									<ModalFooter>
 										<Button type="primary" onClick={this.toggleModal}>Close modal</Button>
