@@ -40,6 +40,7 @@ class Home extends Component {
 
 	toggleModal = () => {
 		this.setState((prevState) => ({
+			image: null,
 			modalIsOpen: !prevState.modalIsOpen
 		}))
 	}
@@ -75,13 +76,13 @@ class Home extends Component {
 						<Row>
 							<Col sm="1/1">
 								<Modal isOpen={this.state.modalIsOpen} onCancel={this.toggleModal} backdropClosesModal>
-									<ModalHeader text="Lots of text to show scroll behavior" showCloseButton onClose={this.toggleModal} />
+									<ModalHeader text="Right Click on the image and choose Save Image As..." showCloseButton onClose={this.toggleModal} />
 									<ModalBody className="ModalBody">
 										{image ? <WebPreview image={image} /> : <Spinner size="md" type="primary" />}
 									</ModalBody>
 									<ModalFooter>
-										<Button type="primary" onClick={this.toggleModal}>Close modal</Button>
-										<Button type="link-cancel" onClick={this.toggleModal}>Also closes modal</Button>
+										<Button type="primary" onClick={this.toggleModal}>Capture another</Button>
+										<Button type="link-cancel" onClick={this.toggleModal}>Cancel</Button>
 									</ModalFooter>
 								</Modal>
 							</Col>
