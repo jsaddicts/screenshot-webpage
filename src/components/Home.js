@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Row, Col, FormInput, Button, InputGroup} from 'elemental';
+import {Row, Col, FormInput, Button, InputGroup, Modal, ModalHeader, ModalBody, ModalFooter} from 'elemental';
 import {WebPreview} from './';
 import {takePicture} from '../utils';
 
@@ -14,11 +14,13 @@ class Home extends Component {
 				height: 768,
 				format: 'base64' 
 			},
-			image: null
+			image: null,
+			modalIsOpen: false
 		}
 	}
 
 	onSubmit = () => {
+		this.toggleModal();
 		takePicture(this.state.params)
 			.then(res => {
 				console.log(res.data)
@@ -36,6 +38,12 @@ class Home extends Component {
 		})
 	}
 
+	toggleModal = () => {
+		this.setState((prevState) => ({
+			modalIsOpen: !prevState.modalIsOpen
+		}))
+	}
+
 	render () {
 		const {image, params} = this.state;
 		const {url, width, height} = params;
@@ -45,7 +53,7 @@ class Home extends Component {
 					<Col sm="1/3"></Col>
 					<Col sm="1/3" className="text-center container">
 						<Row>
-							<Col sm="1/1">
+							<Col>
 								<InputGroup>
 									<InputGroup.Section grow>
 										<FormInput name="url" value={url} onChange={this.updateValue} autoFocus type="text" placeholder="Webpage Url" />
@@ -66,7 +74,16 @@ class Home extends Component {
 						</Row>
 						<Row>
 							<Col sm="1/1">
-								{image ? <WebPreview image={image} /> : null }
+								<Modal isOpen={this.state.modalIsOpen} onCancel={this.toggleModal} backdropClosesModal>
+									<ModalHeader text="Lots of text to show scroll behavior" showCloseButton onClose={this.toggleModal} />
+									<ModalBody>
+										{image ? <WebPreview image={image} /> : null}
+									</ModalBody>
+									<ModalFooter>
+										<Button type="primary" onClick={this.toggleModal}>Close modal</Button>
+										<Button type="link-cancel" onClick={this.toggleModal}>Also closes modal</Button>
+									</ModalFooter>
+								</Modal>
 							</Col>
 						</Row>
 					</Col>
