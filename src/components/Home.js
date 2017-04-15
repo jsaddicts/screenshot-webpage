@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Row, Col, FormInput, Button, InputGroup} from 'elemental';
+import {WebPreview} from './';
 import {takePicture} from '../utils';
 
 class Home extends Component {
@@ -37,22 +38,31 @@ class Home extends Component {
 				<Row>
 					<Col sm="1/3"></Col>
 					<Col sm="1/3" className="text-center container">
-						<InputGroup>
-							<InputGroup.Section grow>
-								<FormInput name="url" value={url} onChange={this.updateValue} autoFocus type="text" placeholder="Webpage Url" />
-							</InputGroup.Section>
-						</InputGroup>
-						<InputGroup>
-							<InputGroup.Section grow>
-								<FormInput name="width" value={width} onChange={this.updateValue} autoFocus type="text" placeholder="Width" />
-							</InputGroup.Section>
-							<InputGroup.Section grow>
-								<FormInput name="height" value={height} onChange={this.updateValue} autoFocus type="text" placeholder="Height" />
-							</InputGroup.Section>
-							<InputGroup.Section>
-								<Button type="success">Take Picture</Button>
-							</InputGroup.Section>
-						</InputGroup>
+						<Row>
+							<Col sm="1/1">
+								<InputGroup>
+									<InputGroup.Section grow>
+										<FormInput name="url" value={url} onChange={this.updateValue} autoFocus type="text" placeholder="Webpage Url" />
+									</InputGroup.Section>
+								</InputGroup>
+								<InputGroup>
+									<InputGroup.Section grow>
+										<FormInput name="width" type="number" value={width} onChange={this.updateValue} placeholder="Width" />
+									</InputGroup.Section>
+									<InputGroup.Section grow>
+										<FormInput name="height" type="number" value={height} onChange={this.updateValue} placeholder="Height" />
+									</InputGroup.Section>
+									<InputGroup.Section>
+										<Button type="success" onClick={this.onSubmit}>Take Picture</Button>
+									</InputGroup.Section>
+								</InputGroup>
+							</Col>
+						</Row>
+						<Row>
+							<Col sm="1/1">
+								<WebPreview />
+							</Col>
+						</Row>
 					</Col>
 					<Col sm="1/3"></Col>
 				</Row>
