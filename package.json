@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jsaddicts/screenshot-webpage#readme",
   "dependencies": {
+    "axios": "^0.16.1",
     "elemental": "^0.6.1",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^0.14.8",
