@@ -3,9 +3,10 @@ import {Card} from 'elemental';
 
 export default class WebPreview extends Component {
 	render () {
+		console.log(this.props)
 		return (
 			<Card>
-				This is a WebPreview
+				<img src={`data:image/png;base64, ${this.props.image}`} />
 			</Card>
 		)
 	}

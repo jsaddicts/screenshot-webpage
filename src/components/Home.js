@@ -11,14 +11,19 @@ class Home extends Component {
 			params: {
 				url: 'http://www.google.com',
 				width: 1360,
-				height: 768
-			}
+				height: 768,
+				format: 'base64' 
+			},
+			image: null
 		}
 	}
 
 	onSubmit = () => {
 		takePicture(this.state.params)
-			.then(res => console.log(res))
+			.then(res => {
+				console.log(res.data)
+				this.setState({image: res.data.src})
+			})
 			.catch(err => console.log(err))
 	}
 
@@ -32,7 +37,8 @@ class Home extends Component {
 	}
 
 	render () {
-		const {url, width, height} = this.state.params;
+		const {image, params} = this.state;
+		const {url, width, height} = params;
 		return (
 			<div>
 				<Row>
@@ -60,7 +66,7 @@ class Home extends Component {
 						</Row>
 						<Row>
 							<Col sm="1/1">
-								<WebPreview />
+								{image ? <WebPreview image={image} /> : null }
 							</Col>
 						</Row>
 					</Col>
