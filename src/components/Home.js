@@ -36,7 +36,6 @@ class Home extends Component {
 		this.toggleModal();
 		takePicture(this.state.params)
 			.then(res => {
-				console.log(res.data)
 				this.setState({image: res.data.src})
 			})
 			.catch(err => console.log(err))
