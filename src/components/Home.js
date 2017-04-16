@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Row, Col, FormInput, Button, InputGroup, Modal, ModalHeader, ModalBody, ModalFooter, Spinner} from 'elemental';
+import {Row, Col, FormInput, Button, InputGroup, Modal, ModalHeader, ModalBody, ModalFooter, Spinner, Card} from 'elemental';
 import {WebPreview} from './';
 import {takePicture} from '../utils';
 
@@ -85,6 +85,16 @@ class Home extends Component {
 										<Button type="link-cancel" onClick={this.toggleModal}>Cancel</Button>
 									</ModalFooter>
 								</Modal>
+							</Col>
+						</Row>
+						<Row>
+							<Col>
+								<Card>
+									<div style={{textAlign: 'center'}}>
+										Made by <strong><a href="http://www.manojsinghnegi.com/">Manoj Singh Negi</a></strong> with React, <a href="https://github.com/manojsinghnegiwd/screenshot-webpage-server" target="_blank">Screenshot Webpage Server</a> & Node.JS
+										<br />
+									</div>
+								</Card>
 							</Col>
 						</Row>
 					</Col>
