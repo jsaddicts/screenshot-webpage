@@ -68,6 +68,9 @@ class Home extends Component {
 					<Col sm="1/3" className="text-center container">
 						<Row>
 							<Col>
+								<h1>
+									Take A Picture
+								</h1>
 								<InputGroup>
 									<InputGroup.Section grow>
 										<FormField label="Webpage Address">
