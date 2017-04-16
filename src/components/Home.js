@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Row, Col, FormInput, Button, InputGroup, Modal, ModalHeader, ModalBody, ModalFooter, Spinner, Card} from 'elemental';
+import {Row, Col, FormInput, Button, InputGroup, Modal, ModalHeader, ModalBody, ModalFooter, Spinner, Card, FormField} from 'elemental';
 import {WebPreview} from './';
 import {takePicture} from '../utils';
 
@@ -70,20 +70,24 @@ class Home extends Component {
 							<Col>
 								<InputGroup>
 									<InputGroup.Section grow>
-										<FormInput name="url" value={url} onChange={this.updateValue} autoFocus type="text" placeholder="Webpage Url" />
+										<FormField label="Webpage Address">
+											<FormInput name="url" value={url} onChange={this.updateValue} autoFocus type="text" placeholder="Webpage Url" />
+										</FormField>
 									</InputGroup.Section>
 								</InputGroup>
-								<InputGroup>
-									<InputGroup.Section grow>
-										<FormInput name="width" type="number" value={width} onChange={this.updateValue} placeholder="Width" />
-									</InputGroup.Section>
-									<InputGroup.Section grow>
-										<FormInput name="height" type="number" value={height} onChange={this.updateValue} placeholder="Height" />
-									</InputGroup.Section>
-									<InputGroup.Section>
-										<Button type="success" onClick={this.onSubmit}>Take Picture</Button>
-									</InputGroup.Section>
-								</InputGroup>
+								<FormField label="Viewport Size">
+									<InputGroup>
+										<InputGroup.Section grow>
+											<FormInput name="width" type="number" value={width} onChange={this.updateValue} placeholder="Width" />
+										</InputGroup.Section>
+										<InputGroup.Section grow>
+											<FormInput name="height" type="number" value={height} onChange={this.updateValue} placeholder="Height" />
+										</InputGroup.Section>
+										<InputGroup.Section>
+											<Button type="success" onClick={this.onSubmit}>Take Picture</Button>
+										</InputGroup.Section>
+									</InputGroup>
+								</FormField>
 							</Col>
 						</Row>
 						<Row>
@@ -102,7 +106,7 @@ class Home extends Component {
 						</Row>
 						<Row>
 							<Col>
-								<Card>
+								<Card className="info">
 									<div style={{textAlign: 'center'}}>
 										Made by <strong><a href="http://www.manojsinghnegi.com/">Manoj Singh Negi</a></strong> with React, <a href="https://github.com/manojsinghnegiwd/screenshot-webpage-server" target="_blank">Screenshot Webpage Server</a> & Node.JS
 										<br />
