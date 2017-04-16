@@ -3,6 +3,19 @@ import {Row, Col, FormInput, Button, InputGroup, Modal, ModalHeader, ModalBody, 
 import {WebPreview} from './';
 import {takePicture} from '../utils';
 
+const Icon = ({name, href, color}) => {
+	return (
+		<span>
+			<a className="icon-links" 
+				href={href}
+				style={{color: (color || 'black')}}
+				target="_blank">
+				<i className={`fa fa-${name}`} />
+			</a>
+		</span>
+	)
+}
+
 class Home extends Component {
 
 	constructor(props) {
@@ -95,6 +108,11 @@ class Home extends Component {
 										<br />
 									</div>
 								</Card>
+								<div className="icons-container">
+									<Icon color="#3b5998" name="facebook-official" href="https://www.facebook.com/manojsinghnegiwd/" />
+									<Icon color="#1da1f2" name="twitter" href="https://twitter.com/manojnegiwd" />
+									<Icon color="#333" name="github" href="https://github.com/jsaddicts/screenshot-webpage" />
+								</div>
 							</Col>
 						</Row>
 					</Col>
