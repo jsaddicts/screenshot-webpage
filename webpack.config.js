@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
 	entry: [
 		__dirname + '/index.js'
@@ -26,5 +28,20 @@ module.exports = {
 	devServer: {
 		contentBase: __dirname + '/dist',
 		// historyApiFallback: true
-	}
+	},
+	plugins: [
+		(process.env.NODE_ENV == 'production' ?
+		  new webpack.DefinePlugin({
+		    'process.env': {
+		      NODE_ENV: JSON.stringify('production')
+		    }
+		  }) : function () {}),
+		(process.env.NODE_ENV == 'production' ?
+		  new webpack.optimize.UglifyJsPlugin({
+		    compress:{
+		      warnings: true
+		    }
+		  })
+		: function () {})
+	]
 }
