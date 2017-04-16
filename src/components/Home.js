@@ -98,7 +98,7 @@ class Home extends Component {
 										{image ? <WebPreview image={image} /> : <Spinner size="md" type="primary" />}
 									</ModalBody>
 									<ModalFooter>
-										<Button type="primary" onClick={this.toggleModal}>Capture another</Button>
+										<Button disabled={!image} type="primary" onClick={this.toggleModal}>Capture another</Button>
 										<Button type="link-cancel" onClick={this.toggleModal}>Cancel</Button>
 									</ModalFooter>
 								</Modal>
