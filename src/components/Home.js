@@ -62,6 +62,7 @@ class Home extends Component {
 		const {url, width, height} = params;
 		return (
 			<div>
+				<Col>
 				<Row>
 					<Col sm="1/3"></Col>
 					<Col sm="1/3" className="text-center container">
@@ -124,6 +125,7 @@ class Home extends Component {
 					</Col>
 					<Col sm="1/3"></Col>
 				</Row>
+				</Col>
 			</div>
 		)
 	}
